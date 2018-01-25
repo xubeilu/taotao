@@ -6,73 +6,125 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-
     <modelVersion>4.0.0</modelVersion>
-  <groupId>com.taotao</groupId>
-  <artifactId>taotao_manager_web</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+    <artifactId>taotao_manager_web</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
     <name>taotao_manager_web Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+    <url>http://maven.apache.org</url>
 
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <scope>test</scope>
+      </dependency>
+      <!--依赖于interface  pojo -->
+      <!--alt+ctr + 空格 做提示-->
+      <dependency>
+          <groupId>com.taotao</groupId>
+          <artifactId>taotao_manager_interface</artifactId>
+          <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <!--添加jackson依赖-->
+      <dependency>
+          <groupId>com.taotao</groupId>
+          <artifactId>taotao_common</artifactId>
+          <version>1.0-SNAPSHOT</version>
+      </dependency>
 
       <!-- Spring -->
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-context</artifactId>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-beans</artifactId>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-webmvc</artifactId>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-jdbc</artifactId>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-aspects</artifactId>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-jms</artifactId>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-context-support</artifactId>
+          <version>${spring.version}</version>
       </dependency>
       <!-- JSP相关 -->
       <dependency>
           <groupId>jstl</groupId>
           <artifactId>jstl</artifactId>
+          <version>${jstl.version}</version>
       </dependency>
       <dependency>
           <groupId>javax.servlet</groupId>
           <artifactId>servlet-api</artifactId>
+          <version>${servlet-api.version}</version>
           <scope>provided</scope>
       </dependency>
       <dependency>
           <groupId>javax.servlet</groupId>
           <artifactId>jsp-api</artifactId>
+          <version>${jsp-api.version}</version>
           <scope>provided</scope>
       </dependency>
-      <!-- 文件上传组件 -->
+      <!--添加dubbbo的依赖 要排除spring-->
+      <!--添加dubbo的依赖-->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>dubbo</artifactId>
+          <!-- 排除依赖 -->
+          <exclusions>
+              <exclusion>
+                  <groupId>org.springframework</groupId>
+                  <artifactId>spring</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>org.jboss.netty</groupId>
+                  <artifactId>netty</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.zookeeper</groupId>
+          <artifactId>zookeeper</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.github.sgroschupf</groupId>
+          <artifactId>zkclient</artifactId>
+      </dependency>
+
+      <!--添加fastfds的客户端-->
+      <dependency>
+          <groupId>fastdfs_client</groupId>
+          <artifactId>fastdfs_client</artifactId>
+          <version>1.25</version>
+      </dependency>
       <dependency>
           <groupId>commons-fileupload</groupId>
           <artifactId>commons-fileupload</artifactId>
       </dependency>
+
   </dependencies>
 
 
